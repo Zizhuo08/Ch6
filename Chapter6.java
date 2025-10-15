@@ -5,7 +5,7 @@ public class Chapter6 {
         System.out.println(isPalindrome("A man, a plan, a canal: Panama."));
         System.out.println(isPalindrome("itiogjid"));
         System.out.println(convertToBinary(20));
-        System.out.println(pigLatin("I love starcraft "));
+        System.out.println(pigLatin("I love starcraft"));
     }
     
     public static String ppap (String str){
@@ -52,8 +52,14 @@ public class Chapter6 {
         String result = "";
         String temp = "";
         int i = 0;
-        while (i < msg.length()){
-            temp = msg.substring(i, msg.indexOf(" ", i));
+        while (i <= msg.length()){
+            int spaceIndex = msg.indexOf(" ", i);
+            if (spaceIndex == -1){
+                temp = msg.substring(i);
+            } else {
+                temp = msg.substring(i, msg.indexOf(" ", i));
+            }
+            
             result += singlePigLatin(temp);
             result += " ";
             i += temp.length() + 1;
